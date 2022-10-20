@@ -1,17 +1,25 @@
 <script>
-import api from '@/services'
+import {mapActions} from 'vuex'
 
 export default {
     data() {
-        return {
-            email: '',
-            password: ''
-        }
+      return {
+          email: 'daledale@email.com',
+          password: 'daledale'
+      }
     },
     methods: {
-      login() {
-        api.login(this.email, this.password)
-        .then((response) => console.log('token', response))
+      ...mapActions({
+        loginAction: 'login'
+      }),
+      async login() {
+        try {
+          await this.loginAction()
+          this.$router.push('/home')
+        }
+        catch (error) {
+          console.log(error)
+        }
       }
     }
 }

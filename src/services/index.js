@@ -2,7 +2,7 @@ class API {
     login = (email, password) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => resolve({
-                token: 'xdxd'
+                accessToken: 'xdxd'
             }), 1000)
         })
     }
